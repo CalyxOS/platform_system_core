@@ -186,6 +186,7 @@
 
 /* The range 7500-7999 is reserved for the system_ext partition. */
 #define AID_SYSTEM_EXT_RESERVED_START 7500
+#define AID_FIREWALL_APP 7960
 #define AID_SYSTEM_EXT_RESERVED_END 7999
 
 #define AID_EVERYBODY 9997 /* shared between all apps in the same profile */
