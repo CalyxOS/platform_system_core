@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2293ae0_69e186cf",
+        "filename": "init/property_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1280,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-22T21:12:19Z",
+      "side": 1,
+      "message": "Just this failed when in the conditional. The other two worked. Only relevant for debug builds anyway. Could even #ifdef if something is available.",
+      "revId": "4462ec3254f2d57cf3ec7b8a3650204f937d233b",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
