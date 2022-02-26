@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a8c4ae7_0538467c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-02-26T00:20:07Z",
+      "side": 1,
+      "message": "`ro.debuggable` check didn\u0027t work.\n\nThis does work, at least on userdebug builds. locked builds should be fine too.\n\nCould add a new variable in theory, one line change to `init/Android.mk` to do so, but this is ok too.",
+      "revId": "d36a544236078a02f1a3a2609abb662490c13a9f",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
