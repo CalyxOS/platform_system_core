@@ -1229,7 +1229,7 @@ static void ProcessKernelDt() {
 }
 
 constexpr auto ANDROIDBOOT_PREFIX = "androidboot."sv;
-constexpr auto ANDROIDBOOT_MODE = "androidboot.mode"sv;
+constexpr auto ANDROIDBOOT_VERIFIEDBOOTSTATE = "androidboot.verifiedbootstate"sv;
 
 static void ProcessKernelCmdline() {
     ImportKernelCmdline([&](const std::string& key, const std::string& value) {
@@ -1249,36 +1249,24 @@ static void ProcessBootconfig() {
 }
 
 static void SetSafetyNetProps() {
-    // Check whether this is a normal boot, and whether the bootloader is actually locked
-    auto isNormalBoot = true; // no prop = normal boot
+    // Check whether verified boot state is yellow
+    auto isVerifiedBootYellow = false;
     // This runs before keys are set as props, so we need to process them ourselves.
     ImportKernelCmdline([&](const std::string& key, const std::string& value) {
-        if (key == ANDROIDBOOT_MODE && value != "normal") {
-            isNormalBoot = false;
+        if (key == ANDROIDBOOT_VERIFIEDBOOTSTATE && value == "yellow") {
+            isVerifiedBootYellow = true;
         }
     });
     ImportBootconfig([&](const std::string& key, const std::string& value) {
-        if (key == ANDROIDBOOT_MODE && value != "normal") {
-            isNormalBoot = false;
+        if (key == ANDROIDBOOT_VERIFIEDBOOTSTATE && value == "yellow") {
+            isVerifiedBootYellow = true;
         }
     });
 
-    // Bail out if this is recovery, fastbootd, or anything other than a normal boot.
-    // fastbootd, in particular, needs the real values so it can allow flashing on
-    // unlocked bootloaders.
-    if (!isNormalBoot) {
-        return;
+    // Spoof verified boot state to green only when it's yellow
+    if (isVerifiedBootYellow) {
+        InitPropertySet("ro.boot.verifiedbootstate", "green");
     }
-
-    // Spoof properties
-    InitPropertySet("ro.boot.verifiedbootstate", "green");
-#if ALLOW_PERMISSIVE_SELINUX == 1
-    // Use the above as a userdebug/eng check, since we don't
-    // need this on locked bootloader builds which will always be -user
-    InitPropertySet("ro.boot.flash.locked", "1");
-    InitPropertySet("ro.boot.veritymode", "enforcing");
-    InitPropertySet("ro.boot.vbmeta.device_state", "locked");
-#endif
 }
 
 void PropertyInit() {
