@@ -1229,6 +1229,7 @@ static void ProcessKernelDt() {
 }
 
 constexpr auto ANDROIDBOOT_PREFIX = "androidboot."sv;
+constexpr auto ANDROIDBOOT_VBMETA_DEVICE_STATE = "androidboot.vbmeta.device_state"sv;
 constexpr auto ANDROIDBOOT_VERIFIEDBOOTSTATE = "androidboot.verifiedbootstate"sv;
 
 static void ProcessKernelCmdline() {
@@ -1251,17 +1252,30 @@ static void ProcessBootconfig() {
 static void SetSafetyNetProps() {
     // Check whether verified boot state is yellow
     auto isVerifiedBootYellow = false;
+    // Check whether vbmeta device state is locked
+    auto isVbmetaDeviceStateLocked = true;
     // This runs before keys are set as props, so we need to process them ourselves.
     ImportKernelCmdline([&](const std::string& key, const std::string& value) {
-        if (key == ANDROIDBOOT_VERIFIEDBOOTSTATE && value == "yellow") {
+        if (key == ANDROIDBOOT_VBMETA_DEVICE_STATE && value != "locked") {
+            isVbmetaDeviceStateLocked = false;
+        } else if (key == ANDROIDBOOT_VERIFIEDBOOTSTATE && value == "yellow") {
             isVerifiedBootYellow = true;
         }
     });
     ImportBootconfig([&](const std::string& key, const std::string& value) {
-        if (key == ANDROIDBOOT_VERIFIEDBOOTSTATE && value == "yellow") {
+        if (key == ANDROIDBOOT_VBMETA_DEVICE_STATE && value != "locked") {
+            isVbmetaDeviceStateLocked = false;
+        } else if (key == ANDROIDBOOT_VERIFIEDBOOTSTATE && value == "yellow") {
             isVerifiedBootYellow = true;
         }
     });
+
+    // Workaround OnePlus bootloader bug that presents unlocked device as locked
+    if (isVbmetaDeviceStateLocked) {
+        InitPropertySet("ro.boot.flash.locked", "1");
+    } else {
+        InitPropertySet("ro.boot.flash.locked", "0");
+    }
 
     // Spoof verified boot state to green only when it's yellow
     if (isVerifiedBootYellow) {
