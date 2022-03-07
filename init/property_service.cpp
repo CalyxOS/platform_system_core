@@ -1229,7 +1229,6 @@ static void ProcessKernelDt() {
 }
 
 constexpr auto ANDROIDBOOT_PREFIX = "androidboot."sv;
-constexpr auto ANDROIDBOOT_MODE = "androidboot.mode"sv;
 constexpr auto ANDROIDBOOT_VERIFIEDBOOTSTATE = "androidboot.verifiedbootstate"sv;
 
 static void ProcessKernelCmdline() {
@@ -1250,32 +1249,26 @@ static void ProcessBootconfig() {
 }
 
 static void SetSafetyNetProps() {
-    // Check whether this is a normal boot, and whether the bootloader is actually locked
-    auto isNormalBoot = true; // no prop = normal boot
+#ifdef RECOVERY
+    // Bail out if this is recovery, fastbootd, or anything other than a normal boot.
+    // fastbootd, in particular, needs the real values so it can allow flashing on
+    // unlocked bootloaders.
+    return;
+#endif
+
     // Check whether verified boot state is yellow
     auto isVerifiedBootYellow = false;
     // This runs before keys are set as props, so we need to process them ourselves.
     ImportKernelCmdline([&](const std::string& key, const std::string& value) {
-        if (key == ANDROIDBOOT_MODE && value != "normal") {
-            isNormalBoot = false;
-        } else if (key == ANDROIDBOOT_VERIFIEDBOOTSTATE && value == "yellow") {
+        if (key == ANDROIDBOOT_VERIFIEDBOOTSTATE && value == "yellow") {
             isVerifiedBootYellow = true;
         }
     });
     ImportBootconfig([&](const std::string& key, const std::string& value) {
-        if (key == ANDROIDBOOT_MODE && value != "normal") {
-            isNormalBoot = false;
-        } else if (key == ANDROIDBOOT_VERIFIEDBOOTSTATE && value == "yellow") {
+        if (key == ANDROIDBOOT_VERIFIEDBOOTSTATE && value == "yellow") {
             isVerifiedBootYellow = true;
         }
     });
-
-    // Bail out if this is recovery, fastbootd, or anything other than a normal boot.
-    // fastbootd, in particular, needs the real values so it can allow flashing on
-    // unlocked bootloaders.
-    if (!isNormalBoot) {
-        return;
-    }
 
     // Spoof properties
 #if ALLOW_PERMISSIVE_SELINUX == 1
