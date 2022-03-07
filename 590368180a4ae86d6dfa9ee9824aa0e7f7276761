@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3e68393_b07db392",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-03-07T14:32:02Z",
+      "side": 1,
+      "message": "This should probably be done in kernel",
+      "revId": "590368180a4ae86d6dfa9ee9824aa0e7f7276761",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
