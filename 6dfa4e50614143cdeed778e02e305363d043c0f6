@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c407b97e_310a199b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000034
+      },
+      "writtenOn": "2022-03-07T13:59:14Z",
+      "side": 1,
+      "message": "I see this as a win, we only trigger if the specified key is \"yellow\", far better than a blanked \"hide\"",
+      "revId": "6dfa4e50614143cdeed778e02e305363d043c0f6",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
