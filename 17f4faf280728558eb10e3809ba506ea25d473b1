@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d2895eb_6384311f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-07T16:47:16Z",
+      "side": 1,
+      "message": "I like it, can ship it later this week.",
+      "revId": "17f4faf280728558eb10e3809ba506ea25d473b1",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16c10b84_a576c9b5",
+        "filename": "init/property_service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-03-07T16:47:16Z",
+      "side": 1,
+      "message": "This is nice.",
+      "revId": "17f4faf280728558eb10e3809ba506ea25d473b1",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
