@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d8e063_8a65bc2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-04-27T12:44:50Z",
+      "side": 1,
+      "message": "Squashed our changes to make this easier to review.\n\nThis alone should be enough for production builds",
+      "revId": "3b1065c3b15e9dcad06f92dcdf906f63e57cb6a6",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
