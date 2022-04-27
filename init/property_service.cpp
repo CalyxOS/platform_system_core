@@ -1270,10 +1270,19 @@ static void SetSafetyNetProps() {
         }
     });
 
+#if ALLOW_PERMISSIVE_SELINUX == 1
+    // Use the above as a userdebug/eng check, since we don't
+    // need this on production builds which will always be -user
+    InitPropertySet("ro.boot.flash.locked", "1");
+    InitPropertySet("ro.boot.verifiedbootstate", "green");
+    InitPropertySet("ro.boot.veritymode", "enforcing");
+    InitPropertySet("ro.boot.vbmeta.device_state", "locked");
+#else
     // Spoof verified boot state to green only when it's yellow
     if (isVerifiedBootYellow) {
         InitPropertySet("ro.boot.verifiedbootstate", "green");
     }
+#endif
 }
 
 void PropertyInit() {
