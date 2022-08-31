@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c56b4106_c7e2d8d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-08-31T16:37:24Z",
+      "side": 1,
+      "message": "Let\u0027s hold this until the rest of the patches are tested again",
+      "revId": "bab3414826ff78771cb3218acd4bf528a7da26d7",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
