@@ -29,11 +29,9 @@
 #include <android-base/file.h>
 #include <android-base/logging.h>
 #include <android-base/parseint.h>
-#include <android-base/stringprintf.h>
 #include <android-base/strings.h>
 #include <android-base/unique_fd.h>
 #include <cutils/sockets.h>
-#include <fs_avb/fs_avb.h>
 #include <libsnapshot/snapshot.h>
 #include <private/android_filesystem_config.h>
 #include <procinfo/process_map.h>
@@ -41,7 +39,6 @@
 #include <snapuserd/snapuserd_client.h>
 
 #include "block_dev_initializer.h"
-#include "lmkd_service.h"
 #include "service_utils.h"
 #include "util.h"
 
@@ -250,56 +247,6 @@ void SnapuserdSelinuxHelper::FinishTransition() {
     }
 }
 
-/*
- * Before starting init second stage, we will wait
- * for snapuserd daemon to be up and running; bionic libc
- * may read /system/etc/selinux/plat_property_contexts file
- * before invoking main() function. This will happen if
- * init initializes property during second stage. Any access
- * to /system without snapuserd daemon will lead to a deadlock.
- *
- * Thus, we do a simple probe by reading system partition. This
- * read will eventually be serviced by daemon confirming that
- * daemon is up and running. Furthermore, we are still in the kernel
- * domain and sepolicy has not been enforced yet. Thus, access
- * to these device mapper block devices are ok even though
- * we may see audit logs.
- */
-bool SnapuserdSelinuxHelper::TestSnapuserdIsReady() {
-    std::string dev = "/dev/block/mapper/system"s + fs_mgr_get_slot_suffix();
-    android::base::unique_fd fd(open(dev.c_str(), O_RDONLY | O_DIRECT));
-    if (fd < 0) {
-        PLOG(ERROR) << "open " << dev << " failed";
-        return false;
-    }
-
-    void* addr;
-    ssize_t page_size = getpagesize();
-    if (posix_memalign(&addr, page_size, page_size) < 0) {
-        PLOG(ERROR) << "posix_memalign with page size " << page_size;
-        return false;
-    }
-
-    std::unique_ptr<void, decltype(&::free)> buffer(addr, ::free);
-
-    int iter = 0;
-    while (iter < 10) {
-        ssize_t n = TEMP_FAILURE_RETRY(pread(fd.get(), buffer.get(), page_size, 0));
-        if (n < 0) {
-            // Wait for sometime before retry
-            std::this_thread::sleep_for(100ms);
-        } else if (n == page_size) {
-            return true;
-        } else {
-            LOG(ERROR) << "pread returned: " << n << " from: " << dev << " expected: " << page_size;
-        }
-
-        iter += 1;
-    }
-
-    return false;
-}
-
 void SnapuserdSelinuxHelper::RelaunchFirstStageSnapuserd() {
     auto fd = GetRamdiskSnapuserdFd();
     if (!fd) {
@@ -321,21 +268,6 @@ void SnapuserdSelinuxHelper::RelaunchFirstStageSnapuserd() {
         setenv(kSnapuserdFirstStagePidVar, std::to_string(pid).c_str(), 1);
 
         LOG(INFO) << "Relaunched snapuserd with pid: " << pid;
-
-        // Since daemon is not started as a service, we have
-        // to explicitly set the OOM score to default which is unkillable
-        std::string oom_str = std::to_string(DEFAULT_OOM_SCORE_ADJUST);
-        std::string oom_file = android::base::StringPrintf("/proc/%d/oom_score_adj", pid);
-        if (!android::base::WriteStringToFile(oom_str, oom_file)) {
-            PLOG(ERROR) << "couldn't write oom_score_adj to snapuserd daemon with pid: " << pid;
-        }
-
-        if (!TestSnapuserdIsReady()) {
-            PLOG(FATAL) << "snapuserd daemon failed to launch";
-        } else {
-            LOG(INFO) << "snapuserd daemon is up and running";
-        }
-
         return;
     }
 
