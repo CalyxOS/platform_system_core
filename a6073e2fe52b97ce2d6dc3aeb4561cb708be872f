@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "972620a9_fd17cff8",
+        "filename": "libcutils/socket_local_client_unix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-09-17T08:57:57Z",
+      "side": 1,
+      "message": "Nope, the \"goto hell\" means this may not get freed...",
+      "revId": "a6073e2fe52b97ce2d6dc3aeb4561cb708be872f",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
