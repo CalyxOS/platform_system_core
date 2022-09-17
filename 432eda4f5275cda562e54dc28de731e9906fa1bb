@@ -18,6 +18,23 @@
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5b0bcb9_66b18b86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-09-17T14:10:51Z",
+      "side": 1,
+      "message": "Does not work with sockets created from native code, so this must not be the right place to make these changes. Updated LocalSocketChat to confirm this. More details in the issue.",
+      "revId": "432eda4f5275cda562e54dc28de731e9906fa1bb",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "470c13c1_209e91e3",
