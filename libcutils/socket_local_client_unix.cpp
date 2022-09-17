@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <cutils/misc.h>           // FIRST_APPLICATION_UID
 #include <cutils/sockets.h>
 
 #include <errno.h>
@@ -47,14 +48,32 @@ int socket_make_sockaddr_un(const char *name, int namespaceId,
 {
     memset (p_addr, 0, sizeof (*p_addr));
     size_t namelen;
+    uid_t uid = getuid();
+    char* socket_name_prefix;
+    int socket_name_prefix_len;
 
     switch (namespaceId) {
         case ANDROID_SOCKET_NAMESPACE_ABSTRACT:
+            // Functionally isolate non-system app namespace by prefixing socket names with uid
+            if (uid >= FIRST_APPLICATION_UID) {
+                socket_name_prefix_len = ABSTRACT_SOCKET_NAME_PREFIX_LEN;
+                socket_name_prefix = (char*) calloc(socket_name_prefix_len + 1, sizeof(char));
+                snprintf(socket_name_prefix, sizeof(socket_name_prefix),
+                    ABSTRACT_SOCKET_NAME_PREFIX_FMT, uid);
+            } else {
+                // All system apps share a functional namespace
+                // Minimize potential impact by only reducing usable name length by 1
+                socket_name_prefix_len = 1;
+                socket_name_prefix =
+                        (char*) calloc(socket_name_prefix_len + 1, sizeof(char));
+                *socket_name_prefix = ABSTRACT_SOCKET_NAME_SYSTEM_PREFIX;
+            }
 #if defined(__linux__)
             namelen  = strlen(name);
 
             // Test with length +1 for the *initial* '\0'.
-            if ((namelen + 1) > sizeof(p_addr->sun_path)) {
+            if ((namelen + 1 + socket_name_prefix_len) > sizeof(p_addr->sun_path)) {
+                free(socket_name_prefix);
                 goto error;
             }
 
@@ -64,20 +83,29 @@ int socket_make_sockaddr_un(const char *name, int namespaceId,
              */
             
             p_addr->sun_path[0] = 0;
-            memcpy(p_addr->sun_path + 1, name, namelen);
+
+            memcpy(p_addr->sun_path + 1, socket_name_prefix, socket_name_prefix_len);
+
+            memcpy(p_addr->sun_path + 1 + socket_name_prefix_len, name, namelen);
 #else
             /* this OS doesn't have the Linux abstract namespace */
 
             namelen = strlen(name) + strlen(FILESYSTEM_SOCKET_PREFIX);
             /* unix_path_max appears to be missing on linux */
-            if (namelen > sizeof(*p_addr) 
+            if ((namelen + socket_name_prefix_len) > sizeof(*p_addr)
                     - offsetof(struct sockaddr_un, sun_path) - 1) {
+                free(socket_name_prefix);
                 goto error;
             }
 
             strcpy(p_addr->sun_path, FILESYSTEM_SOCKET_PREFIX);
+
+            strcat(p_addr->sun_path, socket_name_prefix);
+
             strcat(p_addr->sun_path, name);
 #endif
+            namelen += socket_name_prefix_len;
+            free(socket_name_prefix);
         break;
 
         case ANDROID_SOCKET_NAMESPACE_RESERVED:
