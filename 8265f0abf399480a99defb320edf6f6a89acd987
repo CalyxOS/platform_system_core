@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ddd7a07_a17ef7ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-09-17T09:03:17Z",
+      "side": 1,
+      "message": "Doesn\u0027t actually \"fail\" (appears to solve issue) but isn\u0027t thoroughly tested, might break things (see commit message).\n\nThis could be one of those things that is better to run by AOSP at some point, but leaving here too...",
+      "revId": "8265f0abf399480a99defb320edf6f6a89acd987",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
