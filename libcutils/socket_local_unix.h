@@ -17,6 +17,13 @@
 #ifndef __SOCKET_LOCAL_H
 #define __SOCKET_LOCAL_H
 
+// Max length of uid when formatted as string for abstract socket name prefix.
+// Also change format string if changing this.
+#define ABSTRACT_SOCKET_NAME_PREFIX_LEN 8
+// UID format string, padded to max length (same as above)
+#define ABSTRACT_SOCKET_NAME_PREFIX_FMT "%08u"
+// Single-character socket name prefix for system apps
+#define ABSTRACT_SOCKET_NAME_SYSTEM_PREFIX 'S'
 #define FILESYSTEM_SOCKET_PREFIX "/tmp/" 
 #define ANDROID_RESERVED_SOCKET_PREFIX "/dev/socket/"
 
