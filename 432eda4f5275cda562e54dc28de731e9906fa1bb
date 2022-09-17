@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "470c13c1_209e91e3",
+        "filename": "libcutils/socket_local_client_unix.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-09-17T09:13:11Z",
+      "side": 1,
+      "message": "Wasn\u0027t really sure if it would be better to allocate on the stack here or use malloc/calloc; ended up doing the latter but still don\u0027t know what would be better.\n\nCould also write directly to p_addr-\u003esun_path instead, but snprintf always prints a null terminator, and for mysterious reasons, apparently we don\u0027t want that (see pre-existing comments); if name was empty, the null terminator from the prefix wouldn\u0027t be overwritten, although it could be replaced with another character though...",
+      "revId": "432eda4f5275cda562e54dc28de731e9906fa1bb",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
