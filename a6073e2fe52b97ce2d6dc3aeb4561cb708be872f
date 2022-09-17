@@ -16,6 +16,24 @@
       "message": "Nope, the \"goto hell\" means this may not get freed...",
       "revId": "a6073e2fe52b97ce2d6dc3aeb4561cb708be872f",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f22e31c4_a8f9621d",
+        "filename": "libcutils/socket_local_client_unix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-09-17T09:07:33Z",
+      "side": 1,
+      "message": "Added free before the gotos in patchset 2",
+      "parentUuid": "972620a9_fd17cff8",
+      "revId": "a6073e2fe52b97ce2d6dc3aeb4561cb708be872f",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
