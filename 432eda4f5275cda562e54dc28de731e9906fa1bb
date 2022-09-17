@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26b3fcd6_7a2f0efa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-09-17T12:37:49Z",
+      "side": 1,
+      "message": "Updated LocalSocketChat to look up abstract socket name using getsockaddr from native code. As expected, with this patch, it shows the zero-padded uid at the beginning. https://gitlab.com/t-m-w/LocalSocketChat/-/tree/native-for-sockaddr\n\nI don\u0027t know how much that matters. It mostly means that the max name length is reduced and that an app can come to learn it\u0027s being segmented / affected by non-standard behavior. Even if we lied in our return for getsockaddr (would require modding kernel?!?), an app could still recognize non-standard name length limitations.\n\nStill unclear if benefits outweigh risks or if there could be other unknown effects.",
+      "revId": "432eda4f5275cda562e54dc28de731e9906fa1bb",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "470c13c1_209e91e3",
         "filename": "libcutils/socket_local_client_unix.cpp",
         "patchSetId": 3
