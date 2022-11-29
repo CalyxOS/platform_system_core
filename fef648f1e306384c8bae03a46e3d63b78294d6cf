@@ -16,6 +16,23 @@
       "message": "This does build and pass.",
       "revId": "fef648f1e306384c8bae03a46e3d63b78294d6cf",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f7c9fc4_72a68838",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-11-29T13:34:41Z",
+      "side": 1,
+      "message": "Let\u0027s keep this open for easier picking, for testing.\n\nI don\u0027t know if we want to merge it given it affects other things too, but atl east this way we can easily test.",
+      "revId": "fef648f1e306384c8bae03a46e3d63b78294d6cf",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
