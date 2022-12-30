@@ -672,17 +672,24 @@ static void InstallSignalFdHandler(Epoll* epoll) {
 }
 
 void HandleKeychord(const std::vector<int>& keycodes) {
-    // Only handle keychords if adb is enabled.
+    // Only handle keychords if adb is enabled, except in the case of bugreport, whose keychord
+    // may be enabled separately via a system property.
     std::string adb_enabled = android::base::GetProperty("init.svc.adbd", "");
-    if (adb_enabled != "running") {
-        LOG(WARNING) << "Not starting service for keychord " << android::base::Join(keycodes, ' ')
-                     << " because ADB is disabled";
-        return;
-    }
-
+    auto is_adb_running = adb_enabled == "running";
     auto found = false;
     for (const auto& service : ServiceList::GetInstance()) {
         auto svc = service.get();
+        if (svc->name() == "bugreport") {
+            auto bugreport_chord_enabled =
+                    android::base::GetBoolProperty("persist.init.keychords.bugreport", false);
+            if (!is_adb_running && !bugreport_chord_enabled) {
+                // bugreport is the only service that can have its keychord enabled separately,
+                // so there is no point in looking at the other services.
+                break;
+            }
+        } else if (!is_adb_running) {
+            continue;
+        }
         if (svc->keycodes() == keycodes) {
             found = true;
             LOG(INFO) << "Starting service '" << svc->name() << "' from keychord "
@@ -693,7 +700,13 @@ void HandleKeychord(const std::vector<int>& keycodes) {
             }
         }
     }
-    if (!found) {
+    if (found) {
+        return;
+    }
+    if (!is_adb_running) {
+        LOG(WARNING) << "Not starting service for keychord " << android::base::Join(keycodes, ' ')
+                     << " because ADB is disabled";
+    } else {
         LOG(ERROR) << "Service for keychord " << android::base::Join(keycodes, ' ') << " not found";
     }
 }
