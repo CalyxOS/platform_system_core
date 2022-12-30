@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edff20bc_57e6b259",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2022-12-30T21:05:56Z",
+      "side": 1,
+      "message": "Works, but is not settable from anywhere yet (except setprop as root)",
+      "revId": "30a67b00c4a2264e49f62b33318aabf7850f3048",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
