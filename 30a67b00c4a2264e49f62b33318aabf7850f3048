@@ -16,6 +16,40 @@
       "message": "Works, but is not settable from anywhere yet (except setprop as root)",
       "revId": "30a67b00c4a2264e49f62b33318aabf7850f3048",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d683d27e_c43f0dc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-30T21:10:12Z",
+      "side": 1,
+      "message": "https://en.wikipedia.org/wiki/KISS_principle",
+      "revId": "30a67b00c4a2264e49f62b33318aabf7850f3048",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e517aad_5956b73e",
+        "filename": "init/init.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-30T21:10:12Z",
+      "side": 1,
+      "message": "I don\u0027t see any other users of this\n\nhttps://cs.android.com/search?q\u003dfile:%22.rc%22%20keycodes\u0026sq\u003d\n\nI\u0027d rather not have additional complexity - let\u0027s just enable it if either adb is running, or the prop is set.",
+      "revId": "30a67b00c4a2264e49f62b33318aabf7850f3048",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }

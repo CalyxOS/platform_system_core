@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c80c9244_69e82eec",
+        "filename": "init/init.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2022-12-30T21:10:12Z",
+      "side": 0,
+      "message": "if (adb_enable !\u003d \"running\" || !bugreport_chord_enabled) {\n  ...\n  \nTwo liner.",
+      "revId": "6c1edbfff3b3f56dc427c6c70ac196933d4daa2e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
