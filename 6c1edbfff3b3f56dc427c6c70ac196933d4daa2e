@@ -16,6 +16,24 @@
       "message": "if (adb_enable !\u003d \"running\" || !bugreport_chord_enabled) {\n  ...\n  \nTwo liner.",
       "revId": "6c1edbfff3b3f56dc427c6c70ac196933d4daa2e",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bfb219c_98b833db",
+        "filename": "init/init.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-01-04T13:49:49Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "c80c9244_69e82eec",
+      "revId": "6c1edbfff3b3f56dc427c6c70ac196933d4daa2e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
