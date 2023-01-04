@@ -16,6 +16,24 @@
       "message": "How about `persist.init.keycodes` to match what\u0027s in init.rc",
       "revId": "2164213d5acb0ff867afa020172bf3656a6143f8",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d0c8d3f_f2f5198c",
+        "filename": "init/init.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-01-04T13:45:41Z",
+      "side": 1,
+      "message": "To me, keycodes sounds like a property to override which keycodes are responsible for a behavior, so I prefer keychords, but it\u0027s not user-facing so we can go with whatever.",
+      "parentUuid": "2c56f4e8_3eb37d98",
+      "revId": "2164213d5acb0ff867afa020172bf3656a6143f8",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
