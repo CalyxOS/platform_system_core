@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de2673f7_3a7cd6de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-04T18:48:50Z",
+      "side": 1,
+      "message": "Now for SELinux and to actually hook it up to Settings.",
+      "revId": "0a84b0eec18b4a91709153948c39287381c760a1",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}

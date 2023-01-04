@@ -34,6 +34,24 @@
       "parentUuid": "81b79834_30cfbda2",
       "revId": "f831b835a8bc023f5a74a81d20443af7061dd298",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97977d2a_ba9070e9",
+        "filename": "init/init.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-01-04T18:48:50Z",
+      "side": 1,
+      "message": "That\u0027s what the `\u0026\u0026` does, explained off gerrit. Thanks!",
+      "parentUuid": "65ffff41_80d4d96b",
+      "revId": "f831b835a8bc023f5a74a81d20443af7061dd298",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
