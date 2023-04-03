@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31cdc106_ffa5be6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-04-03T21:10:53Z",
+      "side": 1,
+      "message": "Tested with bramble and I192db722. More details in issue.",
+      "revId": "abfb2bd11b08ef51e0f9d82175af009195a936a1",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
