@@ -16,6 +16,23 @@
       "message": "Tested with bramble and I192db722. More details in issue.",
       "revId": "abfb2bd11b08ef51e0f9d82175af009195a936a1",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "464a3235_11a202be",
+        "filename": "rootdir/init.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-04-04T13:31:47Z",
+      "side": 1,
+      "message": "Smart!",
+      "revId": "abfb2bd11b08ef51e0f9d82175af009195a936a1",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
