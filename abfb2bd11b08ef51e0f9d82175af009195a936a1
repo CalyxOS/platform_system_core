@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "61835b7c_3cb8ffc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-04-07T18:49:09Z",
+      "side": 1,
+      "message": "Worth noting: Even if we wanted to use a script the script would not be available yet, this early in the boot process. There *might* be a way to include one, but /vendor/bin\u0027s scripts are not yet available (not yet mounted I think).\n\nSo what we are doing here may be the best way to do what we want.",
+      "revId": "abfb2bd11b08ef51e0f9d82175af009195a936a1",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "464a3235_11a202be",
         "filename": "rootdir/init.rc",
         "patchSetId": 1
