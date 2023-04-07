@@ -1337,3 +1337,10 @@ on property:persist.device_config.mglru_native.lru_gen_config=core_and_nonleaf_y
   write /sys/kernel/mm/lru_gen/enabled 5
 on property:persist.device_config.mglru_native.lru_gen_config=all
   write /sys/kernel/mm/lru_gen/enabled 7
+
+on property:persist.init.trust_restrict_usb=0
+    # Allows USB connection to start working right away, without being unplugged and re-plugged.
+    # Service defined in device-specific init files.
+    start enable_usb_data
+    restart enable_usb_data
+    stop enable_usb_data
