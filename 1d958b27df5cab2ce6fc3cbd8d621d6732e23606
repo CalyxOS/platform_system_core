@@ -16,6 +16,24 @@
       "message": "The last patchset merely moves the reaction to the persist property to the top of the script and adds a comment explaining why. Definitely worked when I tested.",
       "revId": "1d958b27df5cab2ce6fc3cbd8d621d6732e23606",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87f37c2c_9e83dc93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-05-25T12:35:44Z",
+      "side": 1,
+      "message": "Technically it also checks that the persist properties are ready, which is not explained, but tested and works. There is a reason for that part, but I don\u0027t recall offhand. It is either essential for some reason or helps make the response even faster by reacting the very moment that property is set.",
+      "parentUuid": "a12e3af2_5834a97a",
+      "revId": "1d958b27df5cab2ce6fc3cbd8d621d6732e23606",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
