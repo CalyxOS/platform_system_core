@@ -34,6 +34,24 @@
       "parentUuid": "a12e3af2_5834a97a",
       "revId": "1d958b27df5cab2ce6fc3cbd8d621d6732e23606",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bd8606d_9387d0ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-05-25T12:39:00Z",
+      "side": 1,
+      "message": "Ohh, I remember. Checking that the properties are loaded is needed due to this change: https://review.calyxos.org/c/CalyxOS/vendor_calyx/+/16713\n\nIt\u0027s to make sure that the persist property has been loaded, if it was set; without this, it will react to it being default 0 in userdebug even if it was changed by the user to something else.",
+      "parentUuid": "87f37c2c_9e83dc93",
+      "revId": "1d958b27df5cab2ce6fc3cbd8d621d6732e23606",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
