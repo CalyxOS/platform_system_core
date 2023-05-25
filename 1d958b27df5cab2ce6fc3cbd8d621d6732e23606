@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a12e3af2_5834a97a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-05-25T12:32:34Z",
+      "side": 1,
+      "message": "The last patchset merely moves the reaction to the persist property to the top of the script and adds a comment explaining why. Definitely worked when I tested.",
+      "revId": "1d958b27df5cab2ce6fc3cbd8d621d6732e23606",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
