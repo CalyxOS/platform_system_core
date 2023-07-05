@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ab1f356_e6b344af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2023-07-05T14:32:32Z",
+      "side": 1,
+      "message": "I know this is only meant to test specific things like snet and not meant to be used in production or in an on-going way at all, but just to note...\n\nIf included during first boot, this change leads the CalyxOS SUW to disable OEM unlocking, even when flashing is unlocked, and allows it to be turned on or off at will in Settings. I\u0027m not sure if this is just a cosmetic thing or if it could have an actual impact.\n\nIt also results in `adb remount` not working.",
+      "revId": "dae7e675aeb2554a97095764e04a7215c45d2e86",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
