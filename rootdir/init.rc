@@ -8,9 +8,8 @@
 on property:ro.persistent_properties.ready=true && property:persist.init.trust_restrict_usb=0
     # Allows USB connection to start working right away, without being unplugged and re-plugged.
     # Service defined in device-specific init files.
-    start enable_usb_data
-    restart enable_usb_data
     stop enable_usb_data
+    start enable_usb_data
 
 import /init.environ.rc
 import /system/etc/init/hw/init.usb.rc
