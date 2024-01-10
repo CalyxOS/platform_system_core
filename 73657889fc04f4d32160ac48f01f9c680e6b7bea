@@ -16,6 +16,24 @@
       "message": "Ultimate question will be if early-init in per-device android.hardware.usb.gadget-service.rc is early enough. Looks good so far with bluejay (gs101), but need to test that with OTG and then with other devices.",
       "revId": "73657889fc04f4d32160ac48f01f9c680e6b7bea",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "877dab00_3984ebcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-01-10T18:49:48Z",
+      "side": 1,
+      "message": "It looks fine with bluejay, cheetah, and hawao - not seeing the phone detected by PC, and not seeing the phone detect an OTG device - but when first working on this, I was primarily using bramble, so I\u0027d like to at least try it there, too.",
+      "parentUuid": "2643d2e6_22836f8d",
+      "revId": "73657889fc04f4d32160ac48f01f9c680e6b7bea",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
