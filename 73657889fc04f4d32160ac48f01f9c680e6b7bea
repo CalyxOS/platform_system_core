@@ -34,6 +34,24 @@
       "parentUuid": "2643d2e6_22836f8d",
       "revId": "73657889fc04f4d32160ac48f01f9c680e6b7bea",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "930402a3_3ca1c336",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-01-10T20:36:43Z",
+      "side": 1,
+      "message": "Done, it is early enough on bramble and the other devices I tested for a USB receiver to not appear in dmesg, which is the criteria I used before.",
+      "parentUuid": "877dab00_3984ebcd",
+      "revId": "73657889fc04f4d32160ac48f01f9c680e6b7bea",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
