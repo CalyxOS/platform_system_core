@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2643d2e6_22836f8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-01-10T13:05:53Z",
+      "side": 1,
+      "message": "Ultimate question will be if early-init in per-device android.hardware.usb.gadget-service.rc is early enough. Looks good so far with bluejay (gs101), but need to test that with OTG and then with other devices.",
+      "revId": "73657889fc04f4d32160ac48f01f9c680e6b7bea",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
