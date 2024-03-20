@@ -429,12 +429,14 @@ static Result<void> make_dir_with_options(const MkdirOptions& options) {
             return ErrnoError() << "fchmodat() failed on " << options.target;
         }
     }
+    /*
     if (IsFbeEnabled()) {
         if (!FscryptSetDirectoryPolicy(ref_basename, options.fscrypt_action, options.target)) {
             return reboot_into_recovery(
                     {"--prompt_and_wipe_data", "--reason=set_policy_failed:"s + options.target});
         }
     }
+    */
     return {};
 }
 
