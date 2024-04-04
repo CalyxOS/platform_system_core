@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fb4bddb_58a9356c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2024-04-04T16:26:55Z",
+      "side": 1,
+      "message": "sargo boots again after QPR2 with this change",
+      "revId": "72c5fadae7d127c4d5d6f751cca7f070c2c253fa",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
