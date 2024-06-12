@@ -2230,6 +2230,7 @@ int FastBootTool::Main(int argc, char* argv[]) {
                                       {"os-version", required_argument, 0, 0},
                                       {"page-size", required_argument, 0, 0},
                                       {"ramdisk-offset", required_argument, 0, 0},
+                                      {"reboot", no_argument, 0, 0},
                                       {"set-active", optional_argument, 0, 'a'},
                                       {"skip-reboot", no_argument, 0, 0},
                                       {"skip-secondary", no_argument, 0, 0},
@@ -2246,6 +2247,9 @@ int FastBootTool::Main(int argc, char* argv[]) {
     if (!serial) {
         serial = getenv("ANDROID_SERIAL");
     }
+
+    // Default to skipping reboot
+    fp->skip_reboot = true;
 
     int c;
     while ((c = getopt_long(argc, argv, "a::hls:S:vw", longopts, &longindex)) != -1) {
@@ -2285,6 +2289,8 @@ int FastBootTool::Main(int argc, char* argv[]) {
                 if (g_boot_img_hdr.page_size == 0) die("invalid page size");
             } else if (name == "ramdisk-offset") {
                 g_boot_img_hdr.ramdisk_addr = strtoul(optarg, 0, 16);
+            } else if (name == "reboot") {
+                fp->skip_reboot = false;
             } else if (name == "skip-reboot") {
                 fp->skip_reboot = true;
             } else if (name == "skip-secondary") {
