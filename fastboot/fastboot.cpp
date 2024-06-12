@@ -2520,6 +2520,7 @@ int FastBootTool::Main(int argc, char* argv[]) {
             if (!fp->skip_reboot) {
                 tasks.emplace_back(std::make_unique<RebootTask>(fp.get()));
             }
+            fprintf(stderr, "WARNING: Make sure to update bootloader on both slots.\n");
         } else if (command == "update") {
             bool slot_all = (fp->slot_override == "all");
             if (slot_all) {
@@ -2534,6 +2535,7 @@ int FastBootTool::Main(int argc, char* argv[]) {
             if (!fp->skip_reboot) {
                 tasks.emplace_back(std::make_unique<RebootTask>(fp.get()));
             }
+            fprintf(stderr, "WARNING: Make sure to update bootloader on both slots.\n");
         } else if (command == FB_CMD_SET_ACTIVE) {
             std::string slot = verify_slot(next_arg(&args), false);
             fb->SetActive(slot);
