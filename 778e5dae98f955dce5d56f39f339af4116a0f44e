@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b92027f9_99a8de7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-12T22:07:39Z",
+      "side": 1,
+      "message": "```\nWriting \u0027super\u0027                                    OKAY [  0.689s]\nWARNING: Make sure to update bootloader on both slots.\nFinished. Total time: 98.307s\n```",
+      "revId": "778e5dae98f955dce5d56f39f339af4116a0f44e",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    }
+  ]
+}
