@@ -16,6 +16,24 @@
       "message": "I wonder if we should guard this",
       "revId": "2ff9e3bcf56de23799c10883f1718b54d4e41832",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "847aa9cb_5aada798",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2024-06-18T18:49:51Z",
+      "side": 1,
+      "message": "Can always do that before next update.",
+      "parentUuid": "37115d17_db218910",
+      "revId": "2ff9e3bcf56de23799c10883f1718b54d4e41832",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
