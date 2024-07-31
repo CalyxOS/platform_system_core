@@ -16,6 +16,41 @@
       "message": "`fastboot reboot` broken\n`fastboot --reboot reboot` works.",
       "revId": "84c84bcbfb1fa200e1d81f72b77a1e41ca8d7d24",
       "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65990e52_f86bf8c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-07-31T21:39:34Z",
+      "side": 1,
+      "message": "Is this the one where I mentioned you can already reboot following other commands by adding a reboot command to the end of the fastboot arguments (since fastboot lets you string multiple commands)? If so, do we need this?",
+      "parentUuid": "d38b801f_8c6a6c9d",
+      "revId": "84c84bcbfb1fa200e1d81f72b77a1e41ca8d7d24",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d07cf787_e57b4eb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000062
+      },
+      "writtenOn": "2024-07-31T21:39:34Z",
+      "side": 1,
+      "message": "Is this the change",
+      "revId": "84c84bcbfb1fa200e1d81f72b77a1e41ca8d7d24",
+      "serverId": "35266860-6252-469c-a67d-185064479fc0"
     }
   ]
 }
