@@ -3121,7 +3121,7 @@ bool SnapshotManager::WriteUpdateState(LockedFile* lock, UpdateState state,
             break;
         case UpdateState::Initiated:
             status.set_source_build_fingerprint(
-                    android::base::GetProperty("ro.build.fingerprint", ""));
+                    android::base::GetProperty("ro.build.version.incremental", ""));
             break;
         default:
             break;
